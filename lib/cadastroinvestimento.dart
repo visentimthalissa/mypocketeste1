@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'menuinferior.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(CadastroInvestimentoScreen());
 }
 
-class MyApp extends StatelessWidget {
+class CadastroInvestimentoScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -144,6 +145,7 @@ class MenuScreen extends StatelessWidget {
           ],
         ),
       ),
+      bottomNavigationBar: BottomMenu(), // Adicionando o menu inferior
     );
   }
 }

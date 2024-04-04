@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'menuinferior.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(CadastroMetaFinanceiraScreen());
 }
 
-class MyApp extends StatelessWidget {
+class CadastroMetaFinanceiraScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -12,12 +13,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MenuScreen(),
+      home: CadastroMetaFinanceira(),
     );
   }
 }
 
-class MenuScreen extends StatelessWidget {
+class CadastroMetaFinanceira extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -144,6 +145,7 @@ class MenuScreen extends StatelessWidget {
           ],
         ),
       ),
+      bottomNavigationBar: BottomMenu(), // Adicionando o menu inferior
     );
   }
 }

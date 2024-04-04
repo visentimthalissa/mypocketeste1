@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_youtube_view/flutter_youtube_view.dart';
+import 'menuinferior.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(EducacaoFinanceiraScreen());
 }
 
-class MyApp extends StatelessWidget {
+class EducacaoFinanceiraScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -14,12 +15,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: FinanceEducationScreen(),
+      home: EducacaoFinanceira(),
     );
   }
 }
 
-class FinanceEducationScreen extends StatelessWidget {
+class EducacaoFinanceira extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
@@ -88,6 +89,7 @@ class FinanceEducationScreen extends StatelessWidget {
           ),
         ],
       ),
+      bottomNavigationBar: BottomMenu(), // Adicionando o menu inferior
     );
   }
 

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'menuinferior.dart'; // Importando o arquivo menuinferior.dart
 
 void main() {
-  runApp(MyApp());
+  runApp(LembretesScreen());
 }
 
-class MyApp extends StatelessWidget {
+class LembretesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -185,6 +186,7 @@ class ReminderListPage extends StatelessWidget {
         },
         child: Icon(Icons.add),
       ),
+      bottomNavigationBar: BottomMenu(), // Adicionando o menu inferior
     );
   }
 }

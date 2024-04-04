@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:pie_chart/pie_chart.dart';
+import 'menuinferior.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(EstatisticasScreen());
 }
 
-class MyApp extends StatelessWidget {
+class EstatisticasScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -60,6 +61,7 @@ class _FinanceScreenState extends State<FinanceScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
+            SizedBox(height: 20), // Espaço adicional para baixo
             Container(
               margin: EdgeInsets.all(8),
               padding: EdgeInsets.all(8),
@@ -111,6 +113,7 @@ class _FinanceScreenState extends State<FinanceScreen> {
                 ],
               ),
             ),
+            SizedBox(height: 20), // Espaço adicional para baixo
             Container(
               margin: EdgeInsets.all(8),
               padding: EdgeInsets.all(8),
@@ -145,6 +148,7 @@ class _FinanceScreenState extends State<FinanceScreen> {
           ],
         ),
       ),
+      bottomNavigationBar: BottomMenu(), // Adicionando o menu inferior
     );
   }
 }

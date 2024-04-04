@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'menuinferior.dart'; // Importando o arquivo menuinferior.dart
 
 void main() {
   runApp(FinanceApp());
@@ -35,96 +36,98 @@ class _FinanceScreenState extends State<FinanceScreen> {
         Color.fromRGBO(250, 250, 250, 1.0); // Cor de fundo 10% mais escura
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Finanças Pessoais'),
-      ),
-      body: SingleChildScrollView(
-        padding: EdgeInsets.all(20.0),
-        child: Container(
-          color: darkerBackground,
+      body: Center(
+        child: SingleChildScrollView(
           padding: EdgeInsets.all(20.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Container(
-                decoration: BoxDecoration(
-                  color: background,
-                  borderRadius: BorderRadius.circular(30.0),
-                ),
-                child: Column(
-                  children: [
-                    CircleAvatar(
-                      backgroundImage: AssetImage('assets/profile_picture.jpg'),
-                      radius: 50.0,
-                    ),
-                    SizedBox(height: 10.0),
-                    Text(
-                      _nome,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 20.0),
-                    ),
-                    SizedBox(height: 20.0),
-                    Container(
-                      color: background,
-                      padding: EdgeInsets.all(10.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              color: Colors.amber,
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(10.0),
-                                topRight: Radius.circular(10.0),
+          child: Container(
+            color: darkerBackground,
+            padding: EdgeInsets.all(20.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    color: background,
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
+                  child: Column(
+                    children: [
+                      CircleAvatar(
+                        backgroundImage:
+                            AssetImage('assets/profile_picture.jpg'),
+                        radius: 50.0,
+                      ),
+                      SizedBox(height: 10.0),
+                      Text(
+                        _nome,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 20.0),
+                      ),
+                      SizedBox(height: 20.0),
+                      Container(
+                        color: background,
+                        padding: EdgeInsets.all(10.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                color: Colors.amber,
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(10.0),
+                                  topRight: Radius.circular(10.0),
+                                ),
+                              ),
+                              padding: EdgeInsets.all(10.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.stretch,
+                                children: [
+                                  Text(
+                                    'Seu patrimônio atual é de:',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(fontSize: 18.0),
+                                  ),
+                                  Text(
+                                    _patrimonio,
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        fontSize: 24.0,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ],
                               ),
                             ),
-                            padding: EdgeInsets.all(10.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.stretch,
-                              children: [
-                                Text(
-                                  'Seu patrimônio atual é de:',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(fontSize: 18.0),
-                                ),
-                                Text(
-                                  _patrimonio,
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      fontSize: 24.0,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-              SizedBox(height: 20.0),
-              Container(
-                decoration: BoxDecoration(
-                  color: background,
-                  borderRadius: BorderRadius.circular(30.0),
+                SizedBox(height: 20.0),
+                Container(
+                  decoration: BoxDecoration(
+                    color: background,
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
+                  padding: EdgeInsets.all(10.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      _buildEditableField('Nome', _nome),
+                      _buildEditableField('Telefone', _telefone),
+                      _buildEditableField('Email', _email),
+                      _buildEditableField(
+                          'Data de Nascimento', _dataNascimento),
+                      _buildEditableField('Endereço', _endereco),
+                    ],
+                  ),
                 ),
-                padding: EdgeInsets.all(10.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    _buildEditableField('Nome', _nome),
-                    _buildEditableField('Telefone', _telefone),
-                    _buildEditableField('Email', _email),
-                    _buildEditableField('Data de Nascimento', _dataNascimento),
-                    _buildEditableField('Endereço', _endereco),
-                  ],
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
+      bottomNavigationBar: BottomMenu(), // Adicionando o menu inferior
     );
   }
 

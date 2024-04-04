@@ -1,4 +1,16 @@
 import 'package:flutter/material.dart';
+import 'menuinferior.dart'; // Importando o arquivo menuinferior.dart
+import 'cadastroinvestimento.dart'; // Importando o arquivo correspondente
+import 'cadastrolembrete.dart'; // Importando o arquivo correspondente
+import 'cadastrometafinanceira.dart'; // Importando o arquivo correspondente
+import 'cadastropagamento.dart'; // Importando o arquivo correspondente
+import 'cadastrorecebimento.dart'; // Importando o arquivo correspondente
+import 'educacaofinanceira.dart'; // Importando o arquivo correspondente
+import 'estatisticas.dart'; // Importando o arquivo correspondente
+import 'inicio.dart'; // Importando o arquivo correspondente
+import 'investimentos.dart'; // Importando o arquivo correspondente
+import 'lembretes.dart'; // Importando o arquivo correspondente
+import 'transacoes.dart'; // Importando o arquivo correspondente
 
 void main() {
   runApp(MenuScreen());
@@ -38,15 +50,131 @@ class MenuScreen extends StatelessWidget {
                   Expanded(
                     child: ListView(
                       children: [
-                        MenuItem(title: 'Cadastro de Investimento'),
-                        MenuItem(title: 'Cadastro 1'),
-                        MenuItem(title: 'Cadastro 2'),
-                        MenuItem(title: 'Cadastro 3'),
-                        MenuItem(title: 'Cadastro 4'),
-                        MenuItem(title: 'Cadastro 5'),
-                        MenuItem(title: 'Cadastro 6'),
-                        MenuItem(title: 'Cadastro 7'),
-                        MenuItem(title: 'Cadastro 8'),
+                        MenuItem(
+                          title: 'Cadastro de Investimento',
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    CadastroInvestimentoScreen(),
+                              ),
+                            );
+                          },
+                        ),
+                        MenuItem(
+                          title: 'Cadastro de Lembrete',
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => CadastroLembreteScreen(),
+                              ),
+                            );
+                          },
+                        ),
+                        MenuItem(
+                          title: 'Cadastro de Meta Financeira',
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    CadastroMetaFinanceiraScreen(),
+                              ),
+                            );
+                          },
+                        ),
+                        MenuItem(
+                          title: 'Cadastro de Pagamento',
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => CadastroPagamentoScreen(),
+                              ),
+                            );
+                          },
+                        ),
+                        MenuItem(
+                          title: 'Cadastro de Recebimento',
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    CadastroRecebimentoScreen(),
+                              ),
+                            );
+                          },
+                        ),
+                        MenuItem(
+                          title: 'Educação Financeira',
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    EducacaoFinanceiraScreen(),
+                              ),
+                            );
+                          },
+                        ),
+                        MenuItem(
+                          title: 'Estatísticas',
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => EstatisticasScreen(),
+                              ),
+                            );
+                          },
+                        ),
+                        MenuItem(
+                          title: 'Início',
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => FinanceApp(),
+                              ),
+                            );
+                          },
+                        ),
+                        MenuItem(
+                          title: 'Investimentos',
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => InvestimentosScreen(),
+                              ),
+                            );
+                          },
+                        ),
+                        MenuItem(
+                          title: 'Lembretes',
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => LembretesScreen(),
+                              ),
+                            );
+                          },
+                        ),
+                        MenuItem(
+                          title: 'Transações',
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => TransacoesScreen(),
+                              ),
+                            );
+                          },
+                        ),
                       ],
                     ),
                   ),
@@ -55,6 +183,7 @@ class MenuScreen extends StatelessWidget {
             ),
           ),
         ),
+        bottomNavigationBar: BottomMenu(), // Adicionando o menu inferior
       ),
     );
   }
@@ -62,17 +191,16 @@ class MenuScreen extends StatelessWidget {
 
 class MenuItem extends StatelessWidget {
   final String title;
+  final Function()? onPressed;
 
-  MenuItem({required this.title});
+  MenuItem({required this.title, this.onPressed});
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
       leading: Icon(Icons.navigate_next),
       title: Text(title),
-      onTap: () {
-        // Add your navigation logic here
-      },
+      onTap: onPressed,
     );
   }
 }
