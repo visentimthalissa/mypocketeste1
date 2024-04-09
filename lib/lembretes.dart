@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'menuinferior.dart'; // Importando o arquivo menuinferior.dart
 
 void main() {
-  runApp(LembretesScreen());
+  runApp(const LembretesScreen());
 }
 
 class LembretesScreen extends StatelessWidget {
+  const LembretesScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -13,12 +15,14 @@ class LembretesScreen extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: ReminderScreen(),
+      home: const ReminderScreen(),
     );
   }
 }
 
 class ReminderScreen extends StatelessWidget {
+  const ReminderScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return ReminderListPage();
@@ -26,9 +30,10 @@ class ReminderScreen extends StatelessWidget {
 }
 
 class ReminderList extends StatefulWidget {
+  @override
   final Key key;
 
-  ReminderList({required this.key}) : super(key: key);
+  const ReminderList({required this.key}) : super(key: key);
 
   @override
   _ReminderListState createState() => _ReminderListState();
@@ -80,7 +85,7 @@ class ReminderTile extends StatelessWidget {
   final Function(String) onEdit;
   final VoidCallback onDelete;
 
-  ReminderTile({
+  const ReminderTile({super.key, 
     required this.reminder,
     required this.onEdit,
     required this.onDelete,
@@ -93,24 +98,24 @@ class ReminderTile extends StatelessWidget {
         color: Colors.white,
         borderRadius: BorderRadius.circular(10.0),
       ),
-      padding: EdgeInsets.all(10.0),
+      padding: const EdgeInsets.all(10.0),
       child: Row(
         children: [
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Text(
+                const Text(
                   'Lembrete:',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 16.0,
                   ),
                 ),
-                SizedBox(height: 5),
+                const SizedBox(height: 5),
                 Text(
                   reminder,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 16.0,
                   ),
                 ),
@@ -125,7 +130,7 @@ class ReminderTile extends StatelessWidget {
                   TextEditingController controller =
                       TextEditingController(text: reminder);
                   return AlertDialog(
-                    title: Text('Editar Lembrete'),
+                    title: const Text('Editar Lembrete'),
                     content: TextField(
                       controller: controller,
                       onChanged: (newText) {},
@@ -135,25 +140,25 @@ class ReminderTile extends StatelessWidget {
                         onPressed: () {
                           Navigator.pop(context);
                         },
-                        child: Text('Cancelar'),
+                        child: const Text('Cancelar'),
                       ),
                       TextButton(
                         onPressed: () {
                           onEdit(controller.text);
                           Navigator.pop(context);
                         },
-                        child: Text('Salvar'),
+                        child: const Text('Salvar'),
                       ),
                     ],
                   );
                 },
               );
             },
-            icon: Icon(Icons.edit),
+            icon: const Icon(Icons.edit),
           ),
           IconButton(
             onPressed: onDelete,
-            icon: Icon(Icons.delete),
+            icon: const Icon(Icons.delete),
           ),
         ],
       ),
@@ -164,11 +169,13 @@ class ReminderTile extends StatelessWidget {
 class ReminderListPage extends StatelessWidget {
   final _reminderListKey = GlobalKey<_ReminderListState>();
 
+  ReminderListPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Lembretes'),
+        title: const Text('Lembretes'),
       ),
       body: ReminderList(key: _reminderListKey),
       floatingActionButton: FloatingActionButton(
@@ -184,9 +191,9 @@ class ReminderListPage extends StatelessWidget {
             _reminderListKey.currentState!.addReminder(newReminder);
           }
         },
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
-      bottomNavigationBar: BottomMenu(), // Adicionando o menu inferior
+      bottomNavigationBar: const BottomMenu(), // Adicionando o menu inferior
     );
   }
 }
@@ -194,20 +201,22 @@ class ReminderListPage extends StatelessWidget {
 class AddReminderDialog extends StatelessWidget {
   final TextEditingController _controller = TextEditingController();
 
+  AddReminderDialog({super.key});
+
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text('Adicionar Lembrete'),
+      title: const Text('Adicionar Lembrete'),
       content: TextField(
         controller: _controller,
-        decoration: InputDecoration(labelText: 'Novo Lembrete'),
+        decoration: const InputDecoration(labelText: 'Novo Lembrete'),
       ),
       actions: [
         TextButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          child: Text('Cancelar'),
+          child: const Text('Cancelar'),
         ),
         TextButton(
           onPressed: () {
@@ -216,7 +225,7 @@ class AddReminderDialog extends StatelessWidget {
               Navigator.pop(context, newReminder);
             }
           },
-          child: Text('Adicionar'),
+          child: const Text('Adicionar'),
         ),
       ],
     );

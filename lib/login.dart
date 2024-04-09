@@ -3,16 +3,18 @@ import 'cadastrousuario.dart'; // Importe o arquivo cadastrousuario.dart
 import 'inicio.dart';
 
 void main() {
-  runApp(LoginScreen());
+  runApp(const LoginScreen());
 }
 
 class LoginScreen extends StatelessWidget {
+  const LoginScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         body: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage("assets/fundo.jpg"),
               fit: BoxFit.cover,
@@ -26,13 +28,13 @@ class LoginScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    SizedBox(
+                    const SizedBox(
                         height:
                             110.0), // Adiciona um espaço entre o topo e os campos de texto
                     Container(
                       color: Colors.white.withOpacity(
                           1.0), // Fundo branco com 100% de opacidade
-                      child: TextField(
+                      child: const TextField(
                         style: TextStyle(
                             fontSize: 16.0), // Define o tamanho da fonte
                         decoration: InputDecoration(
@@ -41,13 +43,13 @@ class LoginScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                         height:
                             10.0), // Adiciona um espaço entre os campos de texto
                     Container(
                       color: Colors.white.withOpacity(
                           1.0), // Fundo branco com 100% de opacidade
-                      child: TextField(
+                      child: const TextField(
                         style: TextStyle(
                             fontSize: 16.0), // Define o tamanho da fonte
                         obscureText: true,
@@ -64,7 +66,7 @@ class LoginScreen extends StatelessWidget {
                           onPressed: () {
                             // Implementar ação para "Esqueci minha senha"
                           },
-                          child: Text(
+                          child: const Text(
                             'Esqueci minha senha',
                             style: TextStyle(color: Colors.white),
                           ),
@@ -75,21 +77,21 @@ class LoginScreen extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                   builder: (context) =>
-                                      CadastroUsuarioScreen()),
+                                      const CadastroUsuarioScreen()),
                             );
                           },
-                          child: Text(
+                          child: const Text(
                             'Criar conta',
                             style: TextStyle(color: Colors.white),
                           ),
                         ),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                         height:
                             20.0), // Adiciona um espaço entre os botões e o botão "Entrar"
                     Container(
-                      padding: EdgeInsets.symmetric(
+                      padding: const EdgeInsets.symmetric(
                           horizontal:
                               90), // Define o tamanho horizontal do contêiner preto
                       child: ElevatedButton(
@@ -97,7 +99,7 @@ class LoginScreen extends StatelessWidget {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => FinanceApp()),
+                                builder: (context) => const FinanceApp()),
                           );
                         },
                         style: ButtonStyle(
@@ -105,7 +107,7 @@ class LoginScreen extends StatelessWidget {
                               Colors.black.withOpacity(
                                   0.8)), // Fundo preto com 80% de opacidade
                         ),
-                        child: Text(
+                        child: const Text(
                           'Entrar',
                           style: TextStyle(color: Colors.white),
                         ),

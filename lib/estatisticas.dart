@@ -3,13 +3,15 @@ import 'package:pie_chart/pie_chart.dart';
 import 'menuinferior.dart';
 
 void main() {
-  runApp(EstatisticasScreen());
+  runApp(const EstatisticasScreen());
 }
 
 class EstatisticasScreen extends StatelessWidget {
+  const EstatisticasScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: FinanceScreen(),
     );
   }
@@ -23,19 +25,21 @@ class Goal {
 }
 
 class FinanceScreen extends StatefulWidget {
+  const FinanceScreen({super.key});
+
   @override
   _FinanceScreenState createState() => _FinanceScreenState();
 }
 
 class _FinanceScreenState extends State<FinanceScreen> {
-  Map<String, double> _dataMap = {
+  final Map<String, double> _dataMap = {
     "Categoria 1": 40,
     "Categoria 2": 30,
     "Categoria 3": 30,
   };
 
   String _selectedCategory = "Categoria 1";
-  List<Goal> _goals = [
+  final List<Goal> _goals = [
     Goal(name: "Meta 1", percentage: 0.7),
     Goal(name: "Meta 2", percentage: 0.5),
     Goal(name: "Meta 3", percentage: 0.2),
@@ -43,13 +47,13 @@ class _FinanceScreenState extends State<FinanceScreen> {
 
   Map<String, Color> _getChartColorMap() {
     final defaultColor = Colors.grey[300]!;
-    final selectedColor = Colors.yellow;
+    const selectedColor = Colors.yellow;
 
     Map<String, Color> colorMap = {};
-    _dataMap.keys.forEach((category) {
+    for (var category in _dataMap.keys) {
       colorMap[category] =
           _selectedCategory == category ? selectedColor : defaultColor;
-    });
+    }
 
     return colorMap;
   }
@@ -61,29 +65,29 @@ class _FinanceScreenState extends State<FinanceScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            SizedBox(height: 20), // Espaço adicional para baixo
+            const SizedBox(height: 20), // Espaço adicional para baixo
             Container(
-              margin: EdgeInsets.all(8),
-              padding: EdgeInsets.all(8),
+              margin: const EdgeInsets.all(8),
+              padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Column(
                 children: [
-                  Text('Estatísticas:',
+                  const Text('Estatísticas:',
                       style:
                           TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
                   PieChart(
                     dataMap: _dataMap,
-                    animationDuration: Duration(milliseconds: 800),
+                    animationDuration: const Duration(milliseconds: 800),
                     chartRadius: MediaQuery.of(context).size.width / 2.2,
                     chartType: ChartType.disc,
                     colorList: _getChartColorMap().values.toList(),
-                    chartValuesOptions: ChartValuesOptions(
+                    chartValuesOptions: const ChartValuesOptions(
                       showChartValuesInPercentage: true,
                     ),
-                    legendOptions: LegendOptions(
+                    legendOptions: const LegendOptions(
                       showLegends: true,
                       legendPosition: LegendPosition.right,
                     ),
@@ -113,10 +117,10 @@ class _FinanceScreenState extends State<FinanceScreen> {
                 ],
               ),
             ),
-            SizedBox(height: 20), // Espaço adicional para baixo
+            const SizedBox(height: 20), // Espaço adicional para baixo
             Container(
-              margin: EdgeInsets.all(8),
-              padding: EdgeInsets.all(8),
+              margin: const EdgeInsets.all(8),
+              padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(12),
@@ -124,7 +128,7 @@ class _FinanceScreenState extends State<FinanceScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Minhas metas:',
+                  const Text('Minhas metas:',
                       style:
                           TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
                   ..._goals.map((goal) => Padding(
@@ -132,12 +136,12 @@ class _FinanceScreenState extends State<FinanceScreen> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(goal.name, style: TextStyle(fontSize: 18)),
+                            Text(goal.name, style: const TextStyle(fontSize: 18)),
                             LinearProgressIndicator(
                               value: goal.percentage,
                               backgroundColor: Colors.grey[200],
                               valueColor:
-                                  AlwaysStoppedAnimation<Color>(Colors.yellow),
+                                  const AlwaysStoppedAnimation<Color>(Colors.yellow),
                             ),
                           ],
                         ),
@@ -148,7 +152,7 @@ class _FinanceScreenState extends State<FinanceScreen> {
           ],
         ),
       ),
-      bottomNavigationBar: BottomMenu(), // Adicionando o menu inferior
+      bottomNavigationBar: const BottomMenu(), // Adicionando o menu inferior
     );
   }
 }

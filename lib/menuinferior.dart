@@ -5,6 +5,8 @@ import 'investimentos.dart';
 import 'menu.dart';
 
 class BottomMenu extends StatelessWidget {
+  const BottomMenu({super.key});
+
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
@@ -12,38 +14,38 @@ class BottomMenu extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
           IconButton(
-            icon: Icon(Icons.home),
+            icon: const Icon(Icons.home),
             onPressed: () {
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => FinanceApp()),
+                MaterialPageRoute(builder: (context) => const FinanceApp()),
               );
             },
           ),
           IconButton(
-            icon: Icon(Icons.pie_chart),
+            icon: const Icon(Icons.pie_chart),
             onPressed: () {
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => EstatisticasScreen()),
+                MaterialPageRoute(builder: (context) => const EstatisticasScreen()),
               );
             },
           ),
           IconButton(
-            icon: Icon(Icons.account_balance_wallet),
+            icon: const Icon(Icons.account_balance_wallet),
             onPressed: () {
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => InvestimentosScreen()),
+                MaterialPageRoute(builder: (context) => const InvestimentosScreen()),
               );
             },
           ),
           IconButton(
-            icon: Icon(Icons.menu),
+            icon: const Icon(Icons.menu),
             onPressed: () {
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => MenuScreen()),
+                MaterialPageRoute(builder: (context) => const MenuScreen()),
               );
             },
           ),

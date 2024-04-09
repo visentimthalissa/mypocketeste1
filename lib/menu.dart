@@ -13,17 +13,19 @@ import 'lembretes.dart'; // Importando o arquivo correspondente
 import 'transacoes.dart'; // Importando o arquivo correspondente
 
 void main() {
-  runApp(MenuScreen());
+  runApp(const MenuScreen());
 }
 
 class MenuScreen extends StatelessWidget {
+  const MenuScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Menu'),
+          title: const Text('Menu'),
           backgroundColor: Colors.grey[800],
         ),
         body: Container(
@@ -39,14 +41,14 @@ class MenuScreen extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
+                  const Text(
                     'Menu:',
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Expanded(
                     child: ListView(
                       children: [
@@ -57,7 +59,7 @@ class MenuScreen extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                 builder: (context) =>
-                                    CadastroInvestimentoScreen(),
+                                    const CadastroInvestimentoScreen(),
                               ),
                             );
                           },
@@ -68,7 +70,7 @@ class MenuScreen extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => CadastroLembreteScreen(),
+                                builder: (context) => const CadastroLembreteScreen(),
                               ),
                             );
                           },
@@ -80,7 +82,7 @@ class MenuScreen extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                 builder: (context) =>
-                                    CadastroMetaFinanceiraScreen(),
+                                    const CadastroMetaFinanceiraScreen(),
                               ),
                             );
                           },
@@ -91,7 +93,7 @@ class MenuScreen extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => CadastroPagamentoScreen(),
+                                builder: (context) => const CadastroPagamentoScreen(),
                               ),
                             );
                           },
@@ -103,7 +105,7 @@ class MenuScreen extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                 builder: (context) =>
-                                    CadastroRecebimentoScreen(),
+                                    const CadastroRecebimentoScreen(),
                               ),
                             );
                           },
@@ -115,7 +117,7 @@ class MenuScreen extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                 builder: (context) =>
-                                    EducacaoFinanceiraScreen(),
+                                    const EducacaoFinanceiraScreen(),
                               ),
                             );
                           },
@@ -126,7 +128,7 @@ class MenuScreen extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => EstatisticasScreen(),
+                                builder: (context) => const EstatisticasScreen(),
                               ),
                             );
                           },
@@ -137,7 +139,7 @@ class MenuScreen extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => FinanceApp(),
+                                builder: (context) => const FinanceApp(),
                               ),
                             );
                           },
@@ -148,7 +150,7 @@ class MenuScreen extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => InvestimentosScreen(),
+                                builder: (context) => const InvestimentosScreen(),
                               ),
                             );
                           },
@@ -159,7 +161,7 @@ class MenuScreen extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => LembretesScreen(),
+                                builder: (context) => const LembretesScreen(),
                               ),
                             );
                           },
@@ -170,7 +172,7 @@ class MenuScreen extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => TransacoesScreen(),
+                                builder: (context) => const TransacoesScreen(),
                               ),
                             );
                           },
@@ -183,7 +185,7 @@ class MenuScreen extends StatelessWidget {
             ),
           ),
         ),
-        bottomNavigationBar: BottomMenu(), // Adicionando o menu inferior
+        bottomNavigationBar: const BottomMenu(), // Adicionando o menu inferior
       ),
     );
   }
@@ -193,12 +195,12 @@ class MenuItem extends StatelessWidget {
   final String title;
   final Function()? onPressed;
 
-  MenuItem({required this.title, this.onPressed});
+  const MenuItem({super.key, required this.title, this.onPressed});
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: Icon(Icons.navigate_next),
+      leading: const Icon(Icons.navigate_next),
       title: Text(title),
       onTap: onPressed,
     );

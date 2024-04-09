@@ -4,10 +4,12 @@ import 'package:flutter_youtube_view/flutter_youtube_view.dart';
 import 'menuinferior.dart';
 
 void main() {
-  runApp(EducacaoFinanceiraScreen());
+  runApp(const EducacaoFinanceiraScreen());
 }
 
 class EducacaoFinanceiraScreen extends StatelessWidget {
+  const EducacaoFinanceiraScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -15,15 +17,17 @@ class EducacaoFinanceiraScreen extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: EducacaoFinanceira(),
+      home: const EducacaoFinanceira(),
     );
   }
 }
 
 class EducacaoFinanceira extends StatelessWidget {
+  const EducacaoFinanceira({super.key});
+
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
       statusBarBrightness: Brightness.light,
       statusBarIconBrightness: Brightness.dark,
@@ -38,20 +42,20 @@ class EducacaoFinanceira extends StatelessWidget {
               color: Colors.white,
               borderRadius: BorderRadius.circular(20.0),
             ),
-            margin: EdgeInsets.all(20.0),
+            margin: const EdgeInsets.all(20.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Container(
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: Colors.amber,
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(20.0),
                       topRight: Radius.circular(20.0),
                     ),
                   ),
-                  padding: EdgeInsets.all(20.0),
-                  child: Text(
+                  padding: const EdgeInsets.all(20.0),
+                  child: const Text(
                     'Entenda como funciona:',
                     style: TextStyle(
                       fontSize: 20.0,
@@ -60,9 +64,9 @@ class EducacaoFinanceira extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 10.0),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                const SizedBox(height: 10.0),
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20.0),
                   child: Text(
                     'SELIC, PREFIXADO, IPCA+',
                     style: TextStyle(
@@ -71,12 +75,12 @@ class EducacaoFinanceira extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 20.0),
+                const SizedBox(height: 20.0),
                 Expanded(
                   child: Center(
                     child: FlutterYoutubeView(
                       onViewCreated: _onYoutubeCreated,
-                      params: YoutubeParam(
+                      params: const YoutubeParam(
                         videoId: 'OOEssu7j5UQ',
                         showUI: true,
                         autoPlay: false,
@@ -89,7 +93,7 @@ class EducacaoFinanceira extends StatelessWidget {
           ),
         ],
       ),
-      bottomNavigationBar: BottomMenu(), // Adicionando o menu inferior
+      bottomNavigationBar: const BottomMenu(), // Adicionando o menu inferior
     );
   }
 

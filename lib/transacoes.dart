@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'menuinferior.dart'; // Importando o arquivo menuinferior.dart
 
-void main() => runApp(TransacoesScreen());
+void main() => runApp(const TransacoesScreen());
 
 class TransacoesScreen extends StatelessWidget {
+  const TransacoesScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -13,9 +15,9 @@ class TransacoesScreen extends StatelessWidget {
         body: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Container(
-            padding: EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(10.0),
             color: Colors.white, // Define o fundo do retângulo como branco
-            child: Column(
+            child: const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
@@ -58,7 +60,7 @@ class TransacoesScreen extends StatelessWidget {
             ),
           ),
         ),
-        bottomNavigationBar: BottomMenu(), // Adicionando o menu inferior
+        bottomNavigationBar: const BottomMenu(), // Adicionando o menu inferior
       ),
     );
   }
@@ -91,7 +93,7 @@ class TransactionItem extends StatelessWidget {
               children: <Widget>[
                 Text(
                   transactionName,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                   ),

@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'login.dart'; // Importe o arquivo cadastrousuario.dart
 import 'menuinferior.dart';
 
 void main() {
-  runApp(CadastroUsuarioScreen());
+  runApp(const CadastroUsuarioScreen());
 }
 
 class CadastroUsuarioScreen extends StatefulWidget {
+  const CadastroUsuarioScreen({Key? key}) : super(key: key);
+
   @override
   _CadastroUsuarioScreenState createState() => _CadastroUsuarioScreenState();
 }
@@ -25,45 +26,39 @@ class _CadastroUsuarioScreenState extends State<CadastroUsuarioScreen> {
 
   bool senhasIguais = true;
 
+  void formatDate(String value) {
+    String formattedValue = '';
+    if (value.length <= 2) {
+      formattedValue = value;
+    } else if (value.length <= 4) {
+      formattedValue = '${value.substring(0, 2)}/${value.substring(2)}';
+    } else if (value.length <= 6) {
+      formattedValue =
+          '${value.substring(0, 2)}/${value.substring(2, 4)}/${value.substring(4)}';
+    } else {
+      formattedValue =
+          '${value.substring(0, 2)}/${value.substring(2, 4)}/${value.substring(4)}';
+    }
+    dataNascimentoController.value = TextEditingValue(
+      text: formattedValue,
+      selection: TextSelection.collapsed(offset: formattedValue.length),
+    );
+  }
+
+  void validatePasswords(String value) {
+    setState(() {
+      senhasIguais = senhaController.text == value;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    void _formatDate(String value) {
-      String formattedValue = '';
-      if (value.length <= 2) {
-        formattedValue = value;
-      } else if (value.length <= 4) {
-        formattedValue = value.substring(0, 2) + '/' + value.substring(2);
-      } else if (value.length <= 6) {
-        formattedValue = value.substring(0, 2) +
-            '/' +
-            value.substring(2, 4) +
-            '/' +
-            value.substring(4);
-      } else {
-        formattedValue = value.substring(0, 2) +
-            '/' +
-            value.substring(2, 4) +
-            '/' +
-            value.substring(4);
-      }
-      dataNascimentoController.value = TextEditingValue(
-        text: formattedValue,
-        selection: TextSelection.collapsed(offset: formattedValue.length),
-      );
-    }
-
-    void _validatePasswords(String value) {
-      setState(() {
-        senhasIguais = senhaController.text == value;
-      });
-    }
-
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Color.fromARGB(255, 255, 208, 0),
+        backgroundColor: const Color.fromARGB(255, 255, 208, 0),
         body: Center(
           child: Padding(
-            padding: EdgeInsets.all(20.0),
+            padding: const EdgeInsets.all(20.0),
             child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -71,32 +66,32 @@ class _CadastroUsuarioScreenState extends State<CadastroUsuarioScreen> {
                 children: [
                   TextField(
                     controller: nomeController,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: 'Nome Completo',
                       fillColor: Colors.white,
                       filled: true,
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   TextField(
                     controller: emailController,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: 'Email',
                       fillColor: Colors.white,
                       filled: true,
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   TextField(
                     controller: senhaController,
                     obscureText: true,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: 'Senha',
                       fillColor: Colors.white,
                       filled: true,
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   TextField(
                     controller: confirmarSenhaController,
                     obscureText: true,
@@ -107,9 +102,9 @@ class _CadastroUsuarioScreenState extends State<CadastroUsuarioScreen> {
                       errorText:
                           senhasIguais ? null : 'As senhas não são iguais',
                     ),
-                    onChanged: _validatePasswords,
+                    onChanged: validatePasswords,
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   TextField(
                     controller: dataNascimentoController,
                     keyboardType: TextInputType.datetime,
@@ -117,45 +112,43 @@ class _CadastroUsuarioScreenState extends State<CadastroUsuarioScreen> {
                       FilteringTextInputFormatter.digitsOnly,
                       LengthLimitingTextInputFormatter(8),
                     ],
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: 'Data de nascimento (dd/mm/aaaa)',
                       fillColor: Colors.white,
                       filled: true,
                     ),
-                    onChanged: _formatDate,
+                    onChanged: formatDate,
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   TextField(
                     controller: enderecoController,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: 'Endereço',
                       fillColor: Colors.white,
                       filled: true,
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   TextField(
                     controller: telefoneController,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: 'Telefone',
                       fillColor: Colors.white,
                       filled: true,
                     ),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   ElevatedButton(
-                    onPressed: () {
-                      // Lógica para criar a conta
-                    },
-                    child: Text('Criar Conta'),
+                    onPressed: () {},
+                    child: const Text('Criar Conta'),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                 ],
               ),
             ),
           ),
         ),
-        bottomNavigationBar: BottomMenu(), // Adicionando o menu inferior
+        bottomNavigationBar: const BottomMenu(), // Adicionando o menu inferior
       ),
     );
   }

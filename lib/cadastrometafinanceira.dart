@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'menuinferior.dart';
 
 void main() {
-  runApp(CadastroMetaFinanceiraScreen());
+  runApp(const CadastroMetaFinanceiraScreen());
 }
 
 class CadastroMetaFinanceiraScreen extends StatelessWidget {
+  const CadastroMetaFinanceiraScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -13,12 +15,14 @@ class CadastroMetaFinanceiraScreen extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: CadastroMetaFinanceira(),
+      home: const CadastroMetaFinanceira(),
     );
   }
 }
 
 class CadastroMetaFinanceira extends StatelessWidget {
+  const CadastroMetaFinanceira({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,11 +34,11 @@ class CadastroMetaFinanceira extends StatelessWidget {
           children: [
             Container(
               color: Colors.white,
-              padding: EdgeInsets.all(20.0),
+              padding: const EdgeInsets.all(20.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     'Nova Meta Financeira:',
                     style: TextStyle(
                       color: Colors.grey,
@@ -42,49 +46,49 @@ class CadastroMetaFinanceira extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: 10.0),
-                  Text(
+                  const SizedBox(height: 10.0),
+                  const Text(
                     'Preencha os campos abaixo com as informações da meta financeira.',
                     style: TextStyle(
                       color: Colors.grey,
                     ),
                   ),
-                  SizedBox(height: 20.0),
+                  const SizedBox(height: 20.0),
                   TextFormField(
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: 'Nome',
                       border: OutlineInputBorder(),
                     ),
                   ),
-                  SizedBox(height: 10.0),
+                  const SizedBox(height: 10.0),
                   TextFormField(
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: 'Descrição',
                       border: OutlineInputBorder(),
                     ),
                   ),
-                  SizedBox(height: 10.0),
+                  const SizedBox(height: 10.0),
                   TextFormField(
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: 'Categoria',
                       border: OutlineInputBorder(),
                     ),
                   ),
-                  SizedBox(height: 10.0),
+                  const SizedBox(height: 10.0),
                   TextFormField(
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: 'Valor',
                       border: OutlineInputBorder(),
                     ),
                   ),
-                  SizedBox(height: 10.0),
+                  const SizedBox(height: 10.0),
                   TextFormField(
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: 'Progresso',
                       border: OutlineInputBorder(),
                     ),
                   ),
-                  SizedBox(height: 20.0),
+                  const SizedBox(height: 20.0),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -94,7 +98,7 @@ class CadastroMetaFinanceira extends StatelessWidget {
                           backgroundColor:
                               MaterialStateProperty.all<Color>(Colors.yellow),
                         ),
-                        child: Text('Cadastrar'),
+                        child: const Text('Cadastrar'),
                       ),
                       ElevatedButton(
                         onPressed: () {},
@@ -102,42 +106,42 @@ class CadastroMetaFinanceira extends StatelessWidget {
                           backgroundColor:
                               MaterialStateProperty.all<Color>(Colors.grey),
                         ),
-                        child: Text('Voltar'),
+                        child: const Text('Voltar'),
                       ),
                     ],
                   ),
                 ],
               ),
             ),
-            SizedBox(height: 20.0),
+            const SizedBox(height: 20.0),
             Container(
               color: Colors.white,
-              padding: EdgeInsets.all(20.0),
+              padding: const EdgeInsets.all(20.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     'Precisa de uma ajudinha?',
                     style: TextStyle(
                       fontSize: 20.0,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: 10.0),
-                  Text(
+                  const SizedBox(height: 10.0),
+                  const Text(
                     'O app MyPocket oferece uma sessão exclusiva de Educação Financeira. Nela, você encontrará vídeos e tutoriais sobre como montar sua carteira e muito mais.\n\nEstá esperando o que?\nAcesse agora e melhore suas finanças!',
                     style: TextStyle(
                       color: Colors.grey,
                     ),
                   ),
-                  SizedBox(height: 20.0),
+                  const SizedBox(height: 20.0),
                   ElevatedButton(
                     onPressed: () {},
                     style: ButtonStyle(
                       backgroundColor:
                           MaterialStateProperty.all<Color>(Colors.yellow),
                     ),
-                    child: Text('Educação Financeira'),
+                    child: const Text('Educação Financeira'),
                   ),
                 ],
               ),
@@ -145,7 +149,7 @@ class CadastroMetaFinanceira extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: BottomMenu(), // Adicionando o menu inferior
+      bottomNavigationBar: const BottomMenu(), // Adicionando o menu inferior
     );
   }
 }

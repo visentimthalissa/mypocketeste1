@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'menuinferior.dart'; // Importando o arquivo menuinferior.dart
 
-void main() => runApp(InvestimentosScreen());
+void main() => runApp(const InvestimentosScreen());
 
 class InvestimentosScreen extends StatelessWidget {
+  const InvestimentosScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -14,9 +16,9 @@ class InvestimentosScreen extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Container(
-              padding: EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(10.0),
               color: Colors.white, // Define o fundo do retângulo como branco
-              child: Column(
+              child: const Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
@@ -61,7 +63,7 @@ class InvestimentosScreen extends StatelessWidget {
             ),
           ),
         ),
-        bottomNavigationBar: BottomMenu(), // Adicionando o menu inferior
+        bottomNavigationBar: const BottomMenu(), // Adicionando o menu inferior
       ),
     );
   }
@@ -94,7 +96,7 @@ class InvestmentItem extends StatelessWidget {
               children: <Widget>[
                 Text(
                   investmentName,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                   ),
@@ -114,7 +116,7 @@ class InvestmentItem extends StatelessWidget {
             children: <Widget>[
               Text(
                 value,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                 ),
